@@ -113,12 +113,12 @@ if __name__ == "__main__":
         T.RandomCrop(32, padding = 4),
         T.RandomHorizontalFlip(),
         T.RandomRotation(10),
-        T.Resize(224),
+        T.Resize(160),
         T.ToTensor(),
         T.Normalize(mean = [0.491, 0.482, 0.447], std = [0.247, 0.243, 0.262])
     ])
     test_transform = T.Compose([
-        T.Resize(224),
+        T.Resize(160),
         T.ToTensor(),
         T.Normalize(mean = [0.491, 0.482, 0.447], std = [0.247, 0.243, 0.262])
     ])
@@ -126,12 +126,12 @@ if __name__ == "__main__":
     train_loader, valid_laoder, test_loader = utils.get_dataloader(
         train_transform,
         test_transform,
-        img_size = 224,
+        img_size = 160,
         **kwargs
     )
 
     # Create model
-    net = model.CMT(img_size = 224, num_class = args.num_class)
+    net = model.CMT_S(img_size = 160, num_class = args.num_class)
     net.to(device)
 
     # Set loss function and optimizer
