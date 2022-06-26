@@ -131,7 +131,7 @@ if __name__ == "__main__":
     )
 
     # Create model
-    net = model.CMT_Ti(img_size = 224, num_class = args.num_class)
+    net = model.CMT(img_size = 224, num_class = args.num_class)
     net.to(device)
 
     # Set loss function and optimizer
