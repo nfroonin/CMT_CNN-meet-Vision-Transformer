@@ -135,8 +135,8 @@ if __name__ == "__main__":
     net.to(device)
 
     # Set loss function and optimizer
-    # criterion = nn.CrossEntropyLoss()
-    criterion = nn.functional.cross_entropy
+    criterion = nn.CrossEntropyLoss()
+    # criterion = nn.functional.cross_entropy
     optimizer = torch.optim.AdamW(net.parameters(), lr = args.lr,
         weight_decay = args.weight_decay
     )
